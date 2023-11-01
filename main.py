@@ -1,5 +1,6 @@
 import re
 import os
+import shutil
 import urllib.request
 
 
@@ -82,4 +83,7 @@ if __name__ == "__main__":
     head_path = './roadmap/'
     diff_level = 3
     sharp_header = '5.1.1'
+    if (os.path.exists(head_path)):
+        shutil.rmtree(head_path)
+    os.mkdir(head_path)
     Markdown_detect(source_file, pic_num, name_mid, head_path, diff_level, sharp_header)
